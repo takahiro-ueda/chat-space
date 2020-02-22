@@ -1,0 +1,24 @@
+.side_bar 
+    .side-header
+        .side-header__items
+            %p.side-header__items__name
+                ueda
+            %ul.side-header__items__menu
+                %li.side-header__item__edit-user    
+                    = link_to "#" do
+                        =icon('fas', 'edit')
+                %li.side-header__item_new-groups
+                    = link_to "#" do
+                        =icon('fas', 'cog')
+
+    .groups
+        = link_to "#", class: "group" do
+            %p.group__group_name
+                techcamp
+            %p.group__group_messages
+                まだメッセージがありません
+
+            %p.group__group_name
+                techcamp
+            %p.group__group_messages
+                まだメッセージがありません
