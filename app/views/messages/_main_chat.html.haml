@@ -10,12 +10,22 @@
         = link_to "Edit", "#"
   .chat-message
     %ul.messages
-      %li.messages-box
-        .messages-box__name
-        ueda
-        .messages-box__date
-        2019/2/21/(Sta)21:00
-        .messages-box__text
-        こんばんは
+      %li.messages-main
+        %li.messages-main__box
+          %p.messages-main__box__name
+            ueda
+          %p.messages-main__box__date
+            2019/2/21/(Sta)21:00:00
+        %p.messages-main__text
+          こんばんは
+    %ul.messages
+      %li.messages-main
+        %li.messages-main__box
+          %p.messages-main__box__name
+            ueda
+          %p.messages-main__box__date
+            2019/2/21/(Sta)21:00:00
+        %p.messages-main__text
+          こんばんは
   .caht-bottom
     
