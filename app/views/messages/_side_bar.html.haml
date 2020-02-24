@@ -2,14 +2,14 @@
     .side-header
         .side-header__items
             %p.side-header__items__name
-                ueda
+                = current_user.name
             %ul.side-header__items__menu
                 %li.side-header__item__edit-user    
                     = link_to "#" do
-                        =icon('fas', 'edit')
+                        =icon('fas', 'edit', class: 'icon')
                 %li.side-header__item_new-groups
-                    = link_to "#" do
-                        =icon('fas', 'cog')
+                    = link_to edit_user_path(current_user) do
+                        =icon('fas', 'cog', class: 'icon')
 
     .groups
         = link_to "#", class: "group" do
