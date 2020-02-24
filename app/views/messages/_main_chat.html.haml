@@ -28,14 +28,12 @@
                 %p.messages-main__text
                     こんばんは
     .chat-footer
-        .chat-footer__new__messege
+        %chat-footer.new__messege
             .input-box
-                %input{type: "text", class: "input-box_text", placeholder: "type a message"}
+                %input{type: "text", class: "input-box__text", placeholder: "type a message"}
                 %label{class: "input-box__image"}
                     = icon('fas', 'image')
-                    %input{type: "file", class: "input-box_image__file"}
-            .chat-footer__submit-btn
-                %p.chat-footer__submit-btn__send_btn
-                    = link_to "Send", "#"
+                    %input{type: "file", class: "input-box__image__file"}
+            %input{type: "submit", value:"Send", class: "submit-btn"}
             
     
