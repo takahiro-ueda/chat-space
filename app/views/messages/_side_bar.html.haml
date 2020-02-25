@@ -4,21 +4,17 @@
             %p.side-header__items__name
                 = current_user.name
             %ul.side-header__items__menu
-                %li.side-header__item__edit-user    
-                    = link_to "#" do
+                %li.side-header__item__new-group   
+                    = link_to new_group_path do
                         =icon('fas', 'edit', class: 'icon')
-                %li.side-header__item_new-groups
+                %li.side-header__item__edit-user
                     = link_to edit_user_path(current_user) do
                         =icon('fas', 'cog', class: 'icon')
-
+                
     .groups
-        = link_to "#", class: "group" do
-            %p.group__name
-                techcamp
-            %p.group__messages
-                まだメッセージがありません
-
-            %p.group__name
-                techcamp
-            %p.group__messages
-                まだメッセージがありません
+        - current_user.groups.each do |group|
+            = link_to "#", class:"group" do
+                %p.group__name
+                    = group.name
+                %p.group__messages
+                    まだメッセージがありません
