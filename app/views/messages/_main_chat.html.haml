@@ -2,13 +2,15 @@
     .chat-header
         .chat-header__left-box
             %p.chat-header__left-box__group_id
-                test
+                = @group.name
             %ul.chat-header__left-box__menbers_list
-                menber:ueda
+                ="Member:" + @group.users.pluck(:name).join(",")
         .chat-header__right-box       
             %p.chat-header__right-box__edit_btn
-                = link_to 'Edit', "#" 
+                = link_to edit_group_path(@group) do
+                    Edit
     .chat-message
+        = render @messages
         %ul.messages
             %li.messages-main
                 %li.messages-main__box
@@ -27,13 +29,23 @@
                         2019/2/21/(Sta)21:00:00
                 %p.messages-main__text
                     こんばんは
+
     .chat-footer
-        %chat-footer.new__messege
+        = form_for [@group, @message] do |f|
+            = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
             .input-box
-                %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-                %label{class: "input-box__image"}
-                    = icon('fas', 'image')
-                    %input{type: "file", class: "input-box__image__file"}
-            %input{type: "submit", value:"Send", class: "submit-btn"}
-            
-    
+                = f.label :image, class: 'input-box__image' do
+                    = icon('fas', 'image', class: 'text')
+                    = f.file_field :image, class: 'image'
+            = f.submit 'Send', class: 'submit-btn'
+
+
+
+    -# .chat-footer
+    -#     %chat-footer.new_message
+    -#         .input-box
+    -#             %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+    -#             %label{class: "input-box__image"}
+    -#                 =icon('fas', 'image')
+    -#                 %input{type: "file", class: "input-box__image__file"}
+    -#         %input{type: "submit", value: "Send", class: "submit-btn"}
