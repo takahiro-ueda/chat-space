@@ -30,22 +30,22 @@
                 %p.messages-main__text
                     こんばんは
 
-    -# .chat-footer
-    -#     = form_for [@group, @message] do |f|
-    -#         = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
-    -#         .input-box
-    -#             = f.label :image, class: 'input-box__image' do
-    -#                 = icon('fas', 'image', class: 'text')
-    -#                 = f.file_field :image, class: 'image'
-    -#         = f.submit 'Send', class: 'submit-btn'
-
-
-
     .chat-footer
-        %chat-footer.new_message
+        = form_for [@group, @message] do |f|
+            = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
             .input-box
-                %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-                %label{class: "input-box__image"}
-                    =icon('fas', 'image')
-                    %input{type: "file", class: "input-box__image__file"}
-            %input{type: "submit", value: "Send", class: "submit-btn"}
+                = f.label :image, class: 'input-box__image' do
+                    = icon('fas', 'image', class: 'text')
+                    = f.file_field :image, class: 'image'
+            = f.submit 'Send', class: 'submit-btn'
+
+
+
+    -# .chat-footer
+    -#     %chat-footer.new_message
+    -#         .input-box
+    -#             %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+    -#             %label{class: "input-box__image"}
+    -#                 =icon('fas', 'image')
+    -#                 %input{type: "file", class: "input-box__image__file"}
+    -#         %input{type: "submit", value: "Send", class: "submit-btn"}
