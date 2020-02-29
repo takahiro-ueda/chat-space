@@ -11,32 +11,14 @@
                     Edit
     .chat-message
         = render @messages
-        %ul.messages
-            %li.messages-main
-                %li.messages-main__box
-                    %p.messages-main__box__name
-                        ueda
-                    %p.messages-main__box__date
-                        2019/2/21/(Sta)21:00:00
-                %p.messages-main__text
-                    こんばんは
-        %ul.messages
-            %li.messages-main
-                %li.messages-main__box
-                    %p.messages-main__box__name
-                        ueda
-                    %p.messages-main__box__date
-                        2019/2/21/(Sta)21:00:00
-                %p.messages-main__text
-                    こんばんは
-
+        
     .chat-footer
         = form_for [@group, @message] do |f|
-            = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
-            .input-box
+            .new_message.input-box
+                = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
                 = f.label :image, class: 'input-box__image' do
-                    = icon('fas', 'image', class: 'text')
-                    = f.file_field :image, class: 'image'
+                    = icon('fas', 'image', class: 'icon')
+                    = f.file_field :image, class: 'input-box__image__file'
             = f.submit 'Send', class: 'submit-btn'
 
 
@@ -49,3 +31,12 @@
     -#                 =icon('fas', 'image')
     -#                 %input{type: "file", class: "input-box__image__file"}
     -#         %input{type: "submit", value: "Send", class: "submit-btn"}
+
+    -# .form
+    -#   = form_for [@group, @message] do |f|
+    -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+    -#     .form__mask
+    -#       = f.label :image, class: 'form__mask__image' do
+    -#         = icon('fas', 'image', class: 'icon')
+    -#         = f.file_field :image, class: 'hidden'
+    -#     = f.submit 'Send', class: 'form__submit'
