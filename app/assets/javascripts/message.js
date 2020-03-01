@@ -1,5 +1,5 @@
 $(function(){
-  function buildHTML(messages){
+  function buildHTML(message){
     if ( message.image ) {
       var html =
        `<div class="messages">
@@ -52,13 +52,18 @@ $('#new_message').on('submit', function(e){
       contentType: false
     })
       .done(function(data){
+        console.log(data)
         var html = buildHTML(data);
-        $('.chat-messages').append(html);  
-        $('input-box_text')[0].reset('');
-        $('.chat-messages').animate({ scrollTop: $('.new_messages')[0].scrollHeight}, 'fast');
+        $('.chat-message').append(html);
+        $('form')[0].reset();
+        $('.chat-message').animate({ scrollTop: $('.chat-message')[0].scrollHeight});
+        return false
       })
-      .fail(function(){
+      .fail(function(data){
         alert("メッセージ送信に失敗しました");
-      });
+      })
+      .always(function(data){
+        $('.submit-btn').prop('disabled', false);
+      })
 })
 });
