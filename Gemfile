@@ -74,3 +74,5 @@ gem 'mini_magick'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+gem 'fog-aws'
